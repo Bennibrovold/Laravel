@@ -42,3 +42,6 @@ Route::post('main','Main\MainController@postRegister');
 Route::get('/cookie/set','CookieController@setCookie');
 
 Route::get('/cookie/get','CookieController@getCookie');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
