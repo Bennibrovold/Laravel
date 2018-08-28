@@ -9,6 +9,6 @@ class BasicController extends Controller
 {
     public function index()
     {
-    	return 'test1';
+    	return 'test2';
     }
 }
