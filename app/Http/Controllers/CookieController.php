@@ -19,5 +19,6 @@ class CookieController extends Controller
     {
     	$value = $request->cookie('name');
     	echo $value;
+      echo '123';
     }
 }
