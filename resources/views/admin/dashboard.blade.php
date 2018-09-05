@@ -1,7 +1,8 @@
-@extends('admin.layouts.app_admin')
+
+@extends('admin.layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
             <div class="jumbotron">
@@ -25,31 +26,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
-            <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">Создать категорию</a>
-            <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading">Самая популярная категория: </h4>
-          <p class="list-group-item-text">
-            Последняя категория:
-          </p>
-        </a>
-        </div>
-        <div class="col-sm-6">
-            <a href="{{ route('admin.record.create')}}" class="btn btn-block btn-primary">Создать статью</a>
-            <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading">Самая популярная статья: </h4>
-          <p class="list-group-item-text">
-            Последняя статья:
-          </p>
-        </a>
-        </div>
+
     </div>
     <div class="row">
         <div class="col-sm-12">
             <p class="text-center">
                 Categories
             </p>
-            <div class="table-responsive">
+            <div class="table-responsive table-hover">
                 <table class="table table-bordered">
                     <thead>
                         <tr>

@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>['auth']],function(){
+Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/','DashboardController@dashboard')->name('admin.index');
     Route::get('category/create','DashboardController@createCategory')->name('admin.category.create');
     Route::post('category/create','DashboardController@addCategory');
@@ -25,7 +25,7 @@ Route::group(['prefix'=>'user','namespace'=>'user','middleware'=>['auth']],funct
 });
 
 Route::get('category/{category}','Category\CategoryController@show');
-Route::get('/user/{id}', 'User\UserController@showProfile');
+Route::get('/user/{id}', 'User\UserController@showProfile')->name('user.profile');
 
 Route::get('/','Main\MainController@index');
 

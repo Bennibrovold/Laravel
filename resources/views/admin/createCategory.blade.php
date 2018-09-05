@@ -1,45 +1,41 @@
-@extends('admin.layouts.app_admin')
+@extends('admin.layouts.app')
 
 @section('content')
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
-            <div class="card card-create">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="">1</a></li>
-                    <li class="list-group-item"><a href="">2</a></li>
-                    <li class="list-group-item"><a href="">3</a></li>
-                    <li class="list-group-item"><a href="">4</a></li>
-                    <li class="list-group-item"><a href="">5</a></li>
-                    <li class="list-group-item"><a href="">6</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <form method="POST" action="{{ route('admin.category.create') }}">
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group row">
-                    <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Name of category') }}</label>
+        <div class="col-md-6">
+            <div class="square_of_form_category">
+                @if($errors->any())
+                    <ul class="ul_errors_category list-unstyled">
+                        @foreach(  $errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
+                    <div class="squareplus_of_form_category">
+                        <form method="POST" action="{{ route('admin.category.create') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div class="form-group">
+                                <label for="name">{{ __('Name of category') }}</label>
+                                <input type="text" class="form-control" name="name" required autofocus>
 
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="name" required autofocus>
-                    </div>
+
+
                 </div>
-                <div class="form-group row mb-0">
-                    <div class="col-md-8 offset-md-4">
-                        <button type="submit" class="btn btn-primary">
+                            <div class="form-group float-right">
+
+                                <button type="submit" class="btn btn-primary form-group">
                             {{ __('add') }}
                         </button>
+
+                            </div>
+                        </form>
                     </div>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
-@foreach( $errors->all() as $error)
-  {{ $error }}
-@endforeach
 
 
 

@@ -25,7 +25,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/user';
+     public function redirectPath()
+ {
+     if (\Auth::user()->is_admin == '1') {
+         return "/admin";
+         // or return route('routename');
+     }
+
+     return "/main";
+     // or return route('routename');
+ }
 
     /**
      * Create a new controller instance.

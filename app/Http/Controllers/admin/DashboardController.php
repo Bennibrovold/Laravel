@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Models\Categories;
 
+use Auth;
 use App\Records;
 use App\Admin;
 use Illuminate\Support\Facades\Validator;
@@ -13,6 +14,11 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
+    public function __construct()
+    {
+      
+    }
+
     public function dashboard()
     {
       $categories = Categories::all();
