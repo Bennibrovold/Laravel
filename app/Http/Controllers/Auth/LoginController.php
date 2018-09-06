@@ -32,7 +32,7 @@ class LoginController extends Controller
          // or return route('routename');
      }
 
-     return "/main";
+     return "/user";
      // or return route('routename');
  }
 

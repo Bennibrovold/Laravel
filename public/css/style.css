@@ -32,7 +32,7 @@
 }
 
 .sup-block_menu .menu .medium-block_menu .title_menu {
-  margin: 0px;
+  margin: 0;
 }
 
 .sup-block_menu .menu .medium-block_menu .title_menu span p {
@@ -95,8 +95,7 @@
 }
 
 .sup-block_menu .menu .bottom-block_menu {
-  margin: 0;
-  margin-top: 20px;
+  margin: 20px 0 0;
   width: 100%;
   height: 50px;
 }
@@ -109,9 +108,32 @@
   margin: 0;
 }
 
+.scrolToTop_sup {
+  text-align: center;
+  padding: 5px;
+}
+
+.scrollToTop {
+  width: 40px;
+  height: 100%;
+  background-color: #bdbdbd;
+  position: fixed;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.5;
+  color: black;
+  top: 0;
+  right: 0;
+}
+
+.mobile-admin-menu {
+  position: absolute;
+  z-index: 1000;
+}
+
 .square_of_form_category {
   background-color: #fff;
-  padding: 0px 0px 45px 0px;
+  padding: 0 0 45px;
   border: 1px solid #ced4da;
   border-radius: 5px;
 }
@@ -129,16 +151,92 @@
   margin: 5px;
 }
 
+.mobile_menu {
+  left: -1000px;
+  z-index: 1000;
+  background-color: #fff;
+}
+
+.pre_mobile_menu {
+  position: absolute;
+  opacity: 0.8;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.btn_close_admin_menu {
+  right: 0;
+  top: 0;
+  display: none;
+  z-index: 1000;
+  margin: 4px 10px 5px 5px;
+  position: absolute;
+}
+
+.btn_close_admin_menu i {
+  color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.btn_close_admin_menu i:hover {
+  color: #bdbdbd;
+}
+
+.medium-block_mobile_menu .h_elements_mobile {
+  padding: 20px;
+  color: #bdbdbd;
+}
+
+.medium-block_mobile_menu .h_elements_mobile h4 {
+  margin: 0;
+}
+
+.medium-block_mobile_menu .li_mobile_menu {
+  padding: 10px 10px 10px 20px;
+  border-top: 2px solid #EEF1F4;
+}
+
+.medium-block_mobile_menu .li_mobile_menu i {
+  color: #4583bd;
+}
+
+.medium-block_mobile_menu .li_mobile_menu a {
+  font-size: 15px;
+  color: black;
+}
+
+.medium-block_mobile_menu .li_mobile_menu ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.medium-block_mobile_menu .li_mobile_menu ul .li_mobile_submenu {
+  padding-top: 5px;
+  list-style: none;
+}
+
+.brand_mobile {
+  background-color: #4583bd;
+  padding: 10px;
+}
+
+.brand_mobile p {
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+}
+
 .button-sqare_menu {
   position: fixed;
-  width: 50px;
-  height: 35px;
+  width: 36px;
+  height: 32px;
   z-index: 1000;
-  margin: 10px;
-  padding: 5px;
+  padding: 3px 6px 0;
   background-color: #fff;
-  -webkit-box-shadow: 0 4px 8px -4px #878787;
-          box-shadow: 0 4px 8px -4px #878787;
+  -webkit-box-shadow: 0 2px 10px -4px #878787;
+          box-shadow: 0 2px 10px -4px #878787;
 }
 
 .button-open_menu {

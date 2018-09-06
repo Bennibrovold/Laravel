@@ -6,7 +6,7 @@ use App\Models\Categories;
 
 use Auth;
 use App\Records;
-use App\Admin;
+use App\CategoriesModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
@@ -16,49 +16,72 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-      
+
     }
 
-    public function dashboard()
+    public function dashboard(request $request)
     {
       $categories = Categories::all();
       $countCategories = Categories::all()->count();
       // $countCategories = $categories-count();
-
+      if(request()->ajax()) {
+        return view('admin.contentFiles.main',['countCategories' => $countCategories,'categories' => $categories]);
+      } else {
       return view('admin.dashboard',['countCategories' => $countCategories,'categories' => $categories]);
+      }
+    }
+
+    public function ajaxContent($params)
+    {
+      if(request()->ajax()) {
+        $page = 'test';
+        return view('admin.contentFiles.'.$page)->with([
+          $params,
+        ]);
+      }
     }
 
     public function createCategory()
     {
+      if(request()->ajax()) {
+        return view('admin.contentFiles.createCategory');
+      } else {
       return view('admin.createCategory');
+      }
     }
 
     protected function validator(Request $data)
     {
-      if($data->isMethod('post')) {
       return Validator::make($data->all(), [
           'name' => 'required|string|unique:categories|',
       ])->validate();
-      $this->addCategory($data);
-    } else {
-      echo 'Error';
-    }
     }
 
     protected function addCategory(Request $data)
     {
-      $data = dashboardController::validator($data);
-      Admin::create([
+      $validator = dashboardController::validator($data);
+      if (!dashboardController::validator($data))
+      {
+        return response()->json([
+              'success' => 'success',
+              'errors'  => $validator->errors()->all(),
+          ], 400);
+      } else {
+      CategoriesModel::create([
           'name' => $data['name'],
       ]);
       return redirect()->back();
+      }
     }
 
     public function createRecord()
     {
       $categories = Categories::all();
-
+      if(request()->ajax()) {
+        return view('admin.contentFiles.createRecord',['categories' => $categories]);
+      } else {
       return view('admin.createRecord',['categories' => $categories]);
+      }
     }
 
     protected function validatorRecords(Request $data)
