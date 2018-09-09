@@ -13,6 +13,10 @@
 
 Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/','DashboardController@dashboard')->name('admin.index');
+    Route::get('/options','DashboardController@options')->name('admin.options');
+    Route::get('/users','DashboardController@users')->name('admin.users');
+    Route::get('/users/{name?}','DashboardController@users')->name('admin.users');
+    Route::delete('/users/{name}/delete','DashboardController@usersDelete')->name('admin.users.destroy');
     Route::get('category/create','DashboardController@createCategory')->name('admin.category.create');
     Route::post('category/create','DashboardController@addCategory');
     Route::get('record/create','DashboardController@createRecord')->name('admin.record.create');
@@ -23,13 +27,11 @@ Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>['auth','admi
 Route::group(['prefix'=>'user','namespace'=>'user','middleware'=>['auth']],function(){
     Route::get('/','UserController@index')->name('user.index');
 });
+Route::get('/category/{category?}/{record?}','Main\MainController@show')->name('record.show');
 
-Route::get('category/{category}','Category\CategoryController@show');
 Route::get('/user/{id}', 'User\UserController@showProfile')->name('user.profile');
 
 Route::get('/','Main\MainController@index');
-
-Auth::routes();
 
 Auth::routes();
 

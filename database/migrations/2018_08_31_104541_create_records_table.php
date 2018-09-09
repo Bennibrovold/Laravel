@@ -20,6 +20,7 @@ class CreateRecordsTable extends Migration
             $table->string('pre_title');
             $table->integer('views')->default(0);
             $table->string('category');
+            $table->boolean('show');
             $table->timestamps();
         });
     }

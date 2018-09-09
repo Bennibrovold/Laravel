@@ -16,6 +16,11 @@ class Records extends Authenticatable
         'pre_title',
         'description',
         'category',
+        'show',
+    ];
+
+    protected $hidden = [
+        'show',
     ];
 
 }

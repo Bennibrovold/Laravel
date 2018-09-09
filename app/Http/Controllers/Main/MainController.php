@@ -11,7 +11,13 @@ class MainController extends Controller
 {
     public function index() {
     $categories = DB::table('categories')->orderBy('count', 'desc')->limit(10)->get();
-
-    return view('main.index',['categories' => $categories]);
+    $records = DB::table('records')->orderBy('views')->limit(2)->get();
+    return view('main.index',['categories' => $categories,'records' => $records]);
   }
+    public function show($category,$id)
+    {
+      $record = DB::table('records')->find($id);
+
+      return view('main.records',['record' => $record]);
+    }
 }

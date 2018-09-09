@@ -5,12 +5,22 @@ $(document).ready(function() {
     ajaxGetContent($(this).attr('href'));
 		history.pushState(null, document.title, $(this).attr('href'));
 	});
+	$('#users').click(function(e) {
+		e.preventDefault();
+		ajaxGetContent($(this).attr('href'));
+		history.pushState(null, document.title, $(this).attr('href'));
+	});
 	$('#category').click(function(e) {
     e.preventDefault();
     ajaxGetContent($(this).attr('href'));
 		history.pushState(null, document.title, $(this).attr('href'));
 	});
   $('#record').click(function(e) {
+    e.preventDefault();
+    ajaxGetContent($(this).attr('href'));
+		history.pushState(null, document.title, $(this).attr('href'));
+	});
+	$('#options').click(function(e) {
     e.preventDefault();
     ajaxGetContent($(this).attr('href'));
 		history.pushState(null, document.title, $(this).attr('href'));

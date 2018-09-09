@@ -60,10 +60,10 @@
                                             <li class="li_submenu"><a id="record" class="a_menu" href="{{route('admin.record.create')}}">Record</a></li>
                                         </ul>
                                     </li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-users" aria-hidden="true"></i> <a href="#">Users</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-users" aria-hidden="true"></i> <a id="users" href="{{route('admin.users')}}">Users</a></li>
                                     <li class="list-group-item li_menu"><i class="fa fa-ticket" aria-hidden="true"></i> <a href="#">Tickets</a></li>
                                     <li class="list-group-item li_menu"><i class="fa fa-area-chart" aria-hidden="true"></i> <a href="#">Stats</a></li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-cog" aria-hidden="true"></i> <a href="#">Options</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-cog" aria-hidden="true"></i> <a id="options" href="{{route('admin.options')}}">Options</a></li>
                                     <li class="list-group-item li_menu"><i class="fa fa-address-book-o" aria-hidden="true"></i> <a href="#">Admins</a></li>
                                     <li class="list-group-item li_menu"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="#">Support</a></li>
                                     <li class="list-group-item li_menu advance" data-slide="2">
@@ -92,6 +92,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="alert" class="alert-container">
             </div>
             <div id="btn_menu" class="button-sqare_menu d-lg-none">
                 <i class="fa fa-bars fa-2x btn_mobile_admin_menu" aria-hidden="true"></i>
@@ -138,7 +140,7 @@
                     <i class="fa fa-arrow-up fa-2x text-center" aria-hidden="true"></i>
                 </div>
             </div>
-            <div id="pre-main" class="col-md-10">
+            <div id="pre-main" class="col-lg-10 col-md-12 col-xs-12">
                 <main id="main" class="py-4">
                     @yield('content')
                 </main>

@@ -27,7 +27,7 @@ class LoginController extends Controller
      */
      public function redirectPath()
  {
-     if (\Auth::user()->is_admin == '1') {
+     if (\Auth::user()->role == 'admin') {
          return "/admin";
          // or return route('routename');
      }

@@ -7,6 +7,7 @@ use App\Models\Categories;
 use Auth;
 use App\Records;
 use App\CategoriesModel;
+use App\Models\MainModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
@@ -92,7 +93,7 @@ class DashboardController extends Controller
           'description' => 'required|string|',
           'pre_title' => 'required|string|',
           'category' => 'required|string|',
-
+          'checkbox' => '',
       ])->validate();
     } else {
       echo 'Error';
@@ -101,14 +102,20 @@ class DashboardController extends Controller
 
     protected function addRecord(Request $data)
     {
+      if(!isset($data['checkbox'])) {
+        $data['checkbox'] = 0;
+      } else {
+        $data['checkbox'] = 1;
+      }
       $data = DashboardController::validatorRecords($data);
-      var_dump($data);
       Records::create([
           'title' => $data['title'],
           'description' => $data['description'],
           'pre_title' => $data['pre_title'],
           'category' => $data['category'],
+          'show' => $data['checkbox'],
       ]);
+      return redirect()->back();
     }
 
     public function deleteCategory($id)
@@ -116,5 +123,57 @@ class DashboardController extends Controller
       $category = Categories::findOrFail($id);
       $category->delete();
       return redirect('admin');
+    }
+
+    public function options()
+    {
+      if(request()->ajax()) {
+
+      return view('admin.contentFiles.options');
+      } else {
+      dd(\Config::get('admin.hyppnotic'));
+      return view('admin.options');
+      }
+    }
+
+    public function users($name = null)
+    {
+        $users = MainModel::all();
+      if(request()->ajax()) {
+        if(!$name == null) {
+
+            $users = MainModel::where('name', 'like', $name)->get();
+        }
+      return view('admin.contentFiles.users',['users' => $users]);
+      } else {
+      return view('admin.users',['users' => $users]);
+      }
+    }
+    public function usersGet($post)
+    {
+      if(request()->ajax()) {
+        dd('ok');
+      } else {
+        dd('no');
+      }
+      //$users = MainModel::where('name', '=', $post['name'])->get();
+    }
+
+    public function ajaxUsersGet(request $data)
+    {
+      if(request()->ajax()) {
+
+    } else {
+      return redirect()->back();
+    }
+    }
+    public function usersDelete($id)
+    {
+      if(request()->ajax())
+      {
+      $user = MainModel::find($id);
+      $user->delete();
+      return response($id);
+      }
     }
 }

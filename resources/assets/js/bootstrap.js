@@ -1,4 +1,6 @@
 
+window.Noty = require('noty');
+
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 

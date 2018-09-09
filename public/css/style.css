@@ -1,3 +1,7 @@
+body {
+  background-color: #fff;
+}
+
 .sup-block_menu {
   position: -webkit-sticky;
   position: sticky;
@@ -108,9 +112,119 @@
   margin: 0;
 }
 
+.pop-art {
+  border-radius: 3px;
+  background-color: #EEF1F4;
+  padding: 10px;
+}
+
+.pop-art h5 {
+  color: #575757;
+  margin: 0;
+}
+
+.record {
+  border: 1px solid #EEF1F4;
+  margin: 10px 0;
+}
+
+.record .pre_title {
+  min-height: 60px;
+  padding: 5px;
+  border-bottom: 1px solid #EEF1F4;
+}
+
+.record .pre_title a {
+  text-decoration: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.record .pre_title a:hover {
+  color: #4e6686;
+}
+
+.record .pre_title a h5 {
+  margin: 0;
+}
+
+.col_news {
+  padding: 0;
+}
+
+.col_news .image_news .info_news {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 20px;
+}
+
+.col_news .image_news .info_news p {
+  font-size: 35px;
+  bottom: 0;
+  color: #fff;
+  padding: 10px;
+  margin: 0px;
+}
+
+.col_news .image_news .info_news p:last-child {
+  font-size: 20px;
+}
+
+.col_news .image_news .image_bright {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.1;
+}
+
+.ul_main {
+  border-radius: 5px;
+  font-size: 15px;
+  border: 1px solid #bdbdbd;
+}
+
+.ul_main h5 {
+  border-bottom: 1px solid #EEF1F4;
+  color: #575757;
+  padding: 5px;
+  margin: 0px;
+}
+
+.ul_main li {
+  color: black;
+  padding: 10px;
+}
+
+.ul_main li:hover {
+  background-color: #EEF1F4;
+}
+
+.ul_main li:last-child {
+  border-bottom: none;
+}
+
 .scrolToTop_sup {
   text-align: center;
   padding: 5px;
+}
+
+.alert-container {
+  position: absolute;
+  z-index: 1000;
+  margin: 5px;
+  right: 0;
+  top: 0;
+  color: #fff;
+  font-size: 15px;
+}
+
+.alert-container .alert {
+  margin-bottom: 0;
 }
 
 .scrollToTop {
@@ -196,6 +310,7 @@
 .medium-block_mobile_menu .li_mobile_menu {
   padding: 10px 10px 10px 20px;
   border-top: 2px solid #EEF1F4;
+  list-style: none;
 }
 
 .medium-block_mobile_menu .li_mobile_menu i {
@@ -303,6 +418,31 @@
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   background-color: black;
+}
+
+.dashboard-table {
+  width: 100%;
+}
+
+.tr_users th {
+  vertical-align: middle;
+}
+
+.btn-small {
+  padding: 5px;
+}
+
+.btn-form {
+  border: none;
+  background-color: none;
+}
+
+.btn-form i {
+  color: #bdbdbd;
+}
+
+.btn-form i:hover {
+  color: #4583bd;
 }
 
 .devider {
