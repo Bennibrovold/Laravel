@@ -26,7 +26,7 @@ class LoginController extends Controller
      * @var string
      */
      public function redirectPath()
- {
+     {
      if (\Auth::user()->role == 'admin') {
          return "/admin";
          // or return route('routename');
@@ -34,7 +34,7 @@ class LoginController extends Controller
 
      return "/user";
      // or return route('routename');
- }
+    }
 
     /**
      * Create a new controller instance.

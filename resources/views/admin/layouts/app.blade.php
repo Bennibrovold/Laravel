@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('images/h_4462.png') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -12,15 +13,17 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" rel="javascript" type="text/javascript"></script>
+    <script src="{{ asset('js/dist2/jquery.min.js')}}" rel="javascript" type="text/javascript"></script>
     <script src="{{asset('js/ajax.js')}}" rel="javascript" type="text/javascript"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
@@ -36,7 +39,9 @@
                         <div class="top-block_menu">
                             <div class="brand">
                                 <p class="text-center">
+                                  <a class="default-link" href="{{ url('/') }}">
                                     Hyppnotic
+                                  </a>
                                 </p>
                             </div>
                         </div>
@@ -50,22 +55,21 @@
                             </div>
                             <div class="list">
                                 <ul class="list-group list-group_menu">
-                                    <li class="list-group-item li_menu"><i class="fa fa-tachometer" aria-hidden="true"></i> <a id="main" href="{{ Route('admin.index')}}">Main</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-tachometer" aria-hidden="true"></i> <a class="ajax_nav" id="main" href="{{ Route('admin.index')}}">Main</a></li>
                                     <li class="list-group-item li_menu advance" data-slide="1"><i class="fa fa-plus" aria-hidden="true"></i> <a href="#">Create</a><i><div class="arrow i-1">
                                         <span></span>
                                         <span></span>
                                       </div></i>
                                         <ul id="advanced" class="list-group submenu-1 hidden">
-                                            <li class="li_submenu"><a id="category" class="a_menu" href="{{route('admin.category.create')}}">Category</a></li>
-                                            <li class="li_submenu"><a id="record" class="a_menu" href="{{route('admin.record.create')}}">Record</a></li>
+                                            <li class="li_submenu"><a  id="category" class="a_menu ajax_nav" href="{{route('admin.create')}}">Category/Record</a></li>
                                         </ul>
                                     </li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-users" aria-hidden="true"></i> <a id="users" href="{{route('admin.users')}}">Users</a></li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-ticket" aria-hidden="true"></i> <a href="#">Tickets</a></li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-area-chart" aria-hidden="true"></i> <a href="#">Stats</a></li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-cog" aria-hidden="true"></i> <a id="options" href="{{route('admin.options')}}">Options</a></li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-address-book-o" aria-hidden="true"></i> <a href="#">Admins</a></li>
-                                    <li class="list-group-item li_menu"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="#">Support</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-users" aria-hidden="true"></i> <a id="users" class="ajax_nav" href="{{route('admin.users')}}">Users</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-ticket" aria-hidden="true"></i> <a class="ajax_nav" href="#">Tickets</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-area-chart" aria-hidden="true"></i> <a class="ajax_nav" href="#">Stats</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-cog" aria-hidden="true"></i> <a class="ajax_nav" id="options" href="{{route('admin.options')}}">Options</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-address-book-o" aria-hidden="true"></i> <a class="ajax_nav" href="#">Admins</a></li>
+                                    <li class="list-group-item li_menu"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a class="ajax_nav" href="#">Support</a></li>
                                     <li class="list-group-item li_menu advance" data-slide="2">
                                         <i class="fa fa-user-circle" aria-hidden="true"></i> <a>{{ Auth::user()->name }}</a> <i><div class="arrow i-2">
                                           <span></span>
@@ -117,8 +121,7 @@
                     <span></span>
                   </div></i>
                             <ul id="advanced" class="list-group submenu-1 hidden">
-                                <li class="li_mobile_submenu"><a id="category" class="a_menu" href="{{route('admin.category.create')}}">Category</a></li>
-                                <li class="li_mobile_submenu"><a id="record" class="a_menu" href="{{route('admin.record.create')}}">Record</a></li>
+                                <li class="li_mobile_submenu"><a id="record" class="a_menu ajax_nav" href="{{route('admin.create')}}">Create</a></li>
                             </ul>
                         </li>
                         <li class=" li_mobile_menu"><i class="fa fa-tachometer" aria-hidden="true"></i> <a href="{{ Route('admin.index')}}">Main</a></li>
@@ -192,7 +195,7 @@
 
         id = $(this).data('slide');
         if ($(e.target).hasClass('a_menu')) {
-
+          console.log(e.target);
         } else {
             if (previousElement == 0) {
                 $('.submenu-' + id).slideToggle('fast');

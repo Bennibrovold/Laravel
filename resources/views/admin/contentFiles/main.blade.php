@@ -1,23 +1,46 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <p><span class="label label-primary">Категории {{ $countCategories }}</span></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="title-admin_menu">
+                <h4>Admin panel by Sekki</h4>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <p><span class="label label-primary">Кол-во статей: 0</span></p>
+    </div>
+    <div class="row py-2">
+        <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+            <div class="background-admin-main">
+                <div class="circle">
+                    <div class="text-admin-circle">
+                        <p><span class="">Категории {{ $countCategories }}</span></p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <p><span class="label label-primary">Посетители за месяц: 0</span></p>
+        <div class="col-md-2 d-none d-lg-block">
+            <div class="background-admin-main">
+                <div class="circle">
+                    <div class="text-admin-circle">
+                        <p><span class="">Категории {{ $countCategories }}</span></p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <p><span class="label label-primary">Посетитиели сегодня: 0</span></p>
+        <div class="col-md-3 d-none d-lg-block">
+            <div class="background-admin-main">
+                <div class="circle">
+                    <div class="text-admin-circle">
+                        <p><span class="">Категории {{ $countCategories }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-none d-lg-block">
+            <div class="background-admin-main">
+                <div class="circle">
+                    <div class="text-admin-circle">
+                        <p><span class="">Категории {{ $countCategories }}</span></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

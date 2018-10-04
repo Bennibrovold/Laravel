@@ -12,6 +12,7 @@ class Records extends Authenticatable
     protected $table  = 'records';
 
     protected $fillable = [
+        'image',
         'title',
         'pre_title',
         'description',
