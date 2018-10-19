@@ -26,15 +26,89 @@ class DashboardController extends Controller
 
     }
 
+    public function date($date,$type)
+    {
+        $dates = [];
+
+        $currentData = date("Y-m-d H:i:s");
+
+        $currentData = strtotime($currentData);
+
+        for($i = 0; $i < count($date);$i++)
+        {
+
+          $formedDate = strtotime($date[$i]);
+
+          $changedDate = $currentData - $formedDate;
+
+          switch ($type) {
+            case 'day': if($changedDate <= 86400) {
+              $dates[$i] = $changedDate;
+
+            }
+            continue;
+            case 'week': if($changedDate <= 604800) {
+              $dates[$i] = $changedDate;
+
+            }
+            continue;
+            case 'month': if($changedDate <= 2592000) {
+              $dates[$i] = $changedDate;
+
+            }
+            continue;
+            case 'year': if($changedDate <= 31104000) {
+              $dates[$i] = $changedDate;
+
+            }
+            continue;
+          }
+
+        }
+
+        return count($dates);
+    }
+
+    public function counter(request $request)
+    {
+        $counts = [];
+        array_push($counts,DashboardController::date(User::all()->pluck('created_at'),$request['type']));
+        array_push($counts,DashboardController::date(Records::all()->pluck('created_at'),$request['type']));
+        array_push($counts,DashboardController::date(Categories::all()->pluck('created_at'),$request['type']));
+        return $counts;
+
+    }
+
     public function dashboard(request $request)
     {
+      $admins = User::where('role','=','admin')->get();
+
       $categories = Categories::all();
       $countCategories = Categories::all()->count();
+
+      $countRecords = DashboardController::date(Records::all()->pluck('created_at'),'day');
+
+      $countUsers = DashboardController::date(User::all()->pluck('created_at'),'day');
+
+      $countCategories = DashboardController::date(Categories::all()->pluck('created_at'),'day');
+
+      $counter = [];
+
+      array_push($counter,$countUsers);
+      array_push($counter,$countRecords);
+      array_push($counter,$countCategories);
+
+      $array = [
+        'counter' => $counter,
+        'categories' => $categories,
+        'admins' => $admins,
+      ];
+
       // $countCategories = $categories-count();
       if(request()->ajax()) {
-        return view('admin.contentFiles.main',['countCategories' => $countCategories,'categories' => $categories]);
+        return view('admin.contentFiles.main',$array);
       } else {
-      return view('admin.dashboard',['countCategories' => $countCategories,'categories' => $categories]);
+      return view('admin.dashboard',$array);
       }
     }
 
@@ -154,14 +228,13 @@ class DashboardController extends Controller
     public function users($name = null)
     {
         $users = MainModel::all();
-        $groups = DB::table('groups')->get();
       if(request()->ajax()) {
         /*if(!$name == null) {
             $users = MainModel::where('name', 'like', $name)->get();
         }*/
-      return view('admin.contentFiles.users',['users' => $users,'groups' => $groups]);
+      return view('admin.contentFiles.users',['users' => $users]);
       } else {
-      return view('admin.users',['users' => $users,'groups' => $groups]);
+      return view('admin.users',['users' => $users]);
       }
     }
     public function usersGet($name)
@@ -357,6 +430,16 @@ class DashboardController extends Controller
             'balance' => $request['balance'],
             'limit' => $request['limit'],
         ]);
+      }
+    }
+
+    public function UploadImageCk(request $request)
+    {
+      if ($request->hasFile('image')){
+          $file = $request->file('image');
+          $filename = $file->getClientOriginalExtension();
+          $request->image->storeAs('images',$request->image->getClientOriginalName());
+          echo "<script type=\"text/javascript\">window.parent.CKEDITOR.tools.callFunction(".$callback.", 'error' );</script>";
       }
     }
 }

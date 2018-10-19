@@ -2,6 +2,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127715368-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-127715368-1');
+</script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,9 +27,12 @@
     <script src="{{asset('js/ajax.js')}}" rel="javascript" type="text/javascript"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="{{ url('../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
+    <script src="{{ url('../node_modules/chart.js/dist/Chart.min.js')}}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
@@ -33,7 +46,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="button_menu d-none d-xs-block ">123123</div>
-            <div class="col-lg-2 col-md-12 sss no-padding d-none d-lg-block">
+            <div class="col-lg-3 col-md-3 col-xl-2 sss no-padding-left d-none d-lg-block">
                 <div class="sup-block_menu">
                     <div class="menu">
                         <div class="top-block_menu">
@@ -143,8 +156,8 @@
                     <i class="fa fa-arrow-up fa-2x text-center" aria-hidden="true"></i>
                 </div>
             </div>
-            <div id="pre-main" class="col-lg-10 col-md-12 col-xs-12">
-                <main id="main" class="py-4">
+            <div id="pre-main" class="col-lg-9 col-xl-10 col-md-12 col-xs-12 no-padding">
+                <main id="main" class="">
                     @yield('content')
                 </main>
             </div>

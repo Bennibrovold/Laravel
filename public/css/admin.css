@@ -4,13 +4,32 @@
 
 .title-admin_menu {
   width: 100%;
-  border-radius: 3px;
   background-color: #4583bd;
+  margin: 15px 0px;
 }
 
 .title-admin_menu h4 {
   padding: 10px;
   color: #fff;
+  margin: 0;
+}
+
+.background-admin-main p {
+  margin: 0;
+}
+
+.ck-editor {
+  height: 500px;
+}
+
+#pre_title {
+  resize: none;
+}
+
+.symbols-counter {
+  position: absolute;
+  bottom: 5px;
+  left: 7px;
   margin: 0;
 }
 
@@ -24,7 +43,8 @@
   background-color: black;
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  z-index: 100;
+  opacity: 0.2;
   position: absolute;
   left: 0;
   top: 0;
@@ -49,7 +69,7 @@
   width: 100%;
   text-align: center;
   font-size: 20px;
-  color: #fff;
+  color: grey;
 }
 
 .upload-image input {
@@ -60,6 +80,15 @@
   left: 0;
   top: 0;
   cursor: pointer;
+}
+
+.input-image-form {
+  position: absolute;
+  z-index: 100;
+}
+
+.no-padding-left {
+  padding-left: 0 !important;
 }
 
 .background-admin-main {
@@ -88,5 +117,160 @@
   font-size: 15px;
   font-family: 'Kanit', sans-serif;
   text-align: center;
+}
+
+.input-image-h5 {
+  position: absolute;
+  top: 50%;
+  margin: 0;
+  margin-top: 0px;
+  z-index: 99;
+  width: 100%;
+  margin-top: -18px;
+  color: #cdcdcd;
+  font-size: 30px;
+}
+
+.margin-square {
+  border-radius: 5px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.margin-square .chartjs-render-monitor {
+  padding-bottom: 5px;
+}
+
+.margin-square h4 {
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  font-size: 17px;
+  font-family: 'Kanit', sans-serif;
+  padding: 10px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.margin-square td {
+  vertical-align: baseline !important;
+}
+
+.margin-square th {
+  border-top: none !important;
+}
+
+.margin-square i .arrow {
+  top: 16px;
+  right: 7px;
+  background-color: #fff;
+}
+
+.block-days {
+  max-width: 203px;
+  -webkit-box-shadow: 0px 0px 4px 0px #cdcdcd;
+          box-shadow: 0px 0px 4px 0px #cdcdcd;
+}
+
+.block-days .prop-elem {
+  border: 1px solid #4583bd;
+  display: inline-block;
+  width: 25px;
+  height: 30px;
+  margin: 2px;
+  background-color: #4583bd;
+}
+
+.block-days .prop-elem p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.block-days .active {
+  background-color: #283e53;
+  border: 1px solid #102c47;
+}
+
+.month_select {
+  width: 203px;
+  height: 40px;
+  position: relative;
+}
+
+.month_select .info-month {
+  text-align: center;
+  height: 40px;
+}
+
+.month_select .info-month p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  bottom: 0;
+  padding: 5px;
+}
+
+.month_select .lr_arrow {
+  z-index: 1000;
+}
+
+.month_select .left-arrow {
+  position: absolute;
+  padding: 5px;
+  left: 0;
+  bottom: 0;
+}
+
+.month_select .right-arrow {
+  position: absolute;
+  padding: 5px;
+  right: 0;
+  bottom: 0;
+}
+
+.select-wrapper {
+  float: left;
+  cursor: pointer;
+  border-bottom: 1px solid #cdcdcd;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: relative;
+}
+
+.select-wrapper:hover {
+  border-bottom: 1px solid #4583bd;
+}
+
+.select-wrapper,
+.select-wrapper select {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.select-wrapper .holder {
+  display: block;
+  margin: 0 35px 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  z-index: -1;
+}
+
+.select-wrapper select {
+  margin: 0;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+  opacity: 0;
 }
 

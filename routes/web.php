@@ -21,6 +21,8 @@ Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>['auth','admi
     Route::post('category/create','DashboardController@addCategory')->name('admin.category.create');
     Route::get('category/{id}/delete','DashboardController@deleteCategory');
     Route::post('record/create','DashboardController@addRecord')->name('admin.record.create');
+    Route::post('image/upload','DashboardController@UploadImageCk')->name('admin.image.upload');
+    Route::get('counter/get','DashboardController@counter')->name('admin.counter');
 });
 
 Route::group(['prefix'=>'user','namespace'=>'user','middleware'=>['auth']],function(){

@@ -46,7 +46,6 @@ body {
         height: 100vh;
         background-color: $white;
         box-shadow: 0 0 6px 0 rgba(0,0,0,0.21);
-        border-right: 1px solid rgba(0,0,0,.125);
 
         .top-block_menu {
             width: 100%;
@@ -55,7 +54,7 @@ body {
                 width: 100%;
                 height: 80px;
                 background-color: $blue;
-                box-shadow: 0 4px 8px -4px rgba(69,131,189,1);
+                //box-shadow: 0 4px 8px -4px rgba(69,131,189,1);
 
                 p {
                     color: #fff;
@@ -88,6 +87,7 @@ body {
                         background-color: $white;
                         border-radius: 0;
                         transition: 0.2s;
+                        border-right: none;
 
                         a {
                             color: black;
@@ -321,7 +321,7 @@ padding: 10px;
   border-bottom: 1px solid $grey;
 }
 
-.show {
+.show-i {
   margin: 10px 0;
   animation: show 0.7s linear;
   animation-fill-mode: forwards;
@@ -938,7 +938,6 @@ margin: 5px;
 }
 
 .background-admin {
+  padding: 15px;
   background-color: #fff;
-border: 1px solid #dee2e6;
-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.21);
 }

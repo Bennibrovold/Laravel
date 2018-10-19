@@ -34,20 +34,20 @@ $(document).ready(function(){
         w_height = w_height - 70;
         if($(arr[i]).offset().top - w_height < $(window).scrollTop()) {
           console.log('ok');
-        if($(arr[i]).hasClass('show')) {
+        if($(arr[i]).hasClass('show-i')) {
 
         } else {
-          $(arr[i]).addClass('show');
+          $(arr[i]).addClass('show-i');
           $(arr[i]).removeClass('hide');
         }
       }
       }
 
-      if($(arr[i]).hasClass('show')) {
+      if($(arr[i]).hasClass('show-i')) {
 
       } else {
         $(arr[i]).removeClass('hide');
-        $(arr[i]).addClass('show');
+        $(arr[i]).addClass('show-i');
       }
     }
 });

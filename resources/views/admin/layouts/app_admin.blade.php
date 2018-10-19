@@ -2,6 +2,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127715368-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-127715368-1');
+</script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -134,7 +144,6 @@
         @isset($categories_limit)
         <div class="row row-shadow px-3">
         @endisset
-            <div class="row">
 
                 @hasSection('popular-articles')
 
@@ -146,7 +155,7 @@
 
                 @endif
 
-            </div>
+
         <div class="row">
 
           @yield('content')
